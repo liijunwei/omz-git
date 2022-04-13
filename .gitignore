@@ -1,2 +1,4 @@
+log/
+tmp/
 git.local.repo.remote.backup
 ,*.*

@@ -22,23 +22,11 @@ function git-tag-stable() {
   git tag ${tag_name}
 }
 
-function ud_convert_branchname(){
-  local raw_branchname=$1;
-  echo $raw_branchname | tr '-' '_' | tr "[:upper:]" "[:lower:]";
-}
-
 unalias gco
 function gco() {
   local original_branch_name=$1;
-  local branch_name=$(ud_convert_branchname $original_branch_name);
+  local branch_name=$original_branch_name;
   git checkout $([[ $branch_name == origin/* || $branch_name == remotes/origin/* ]] && echo "$branch_name" | tr  '/' ' ' | awk '{print $NF}' || echo $branch_name);
-
-  result=$?
-  if [ "$result" != "0" ]; then
-    echo "--------------------------------------";
-    echo "using original: $original_branch_name";
-    git checkout $original_branch_name;
-  fi
 
   git log | head -n1;
 }
@@ -74,7 +62,7 @@ function gcobp() {
     return 0;
   fi
 
-  local branch_name=$(ud_convert_branchname $1);
+  local branch_name=$1;
   git checkout -b $branch_name;
   git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD);
 }
