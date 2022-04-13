@@ -2,7 +2,7 @@
 
 # Custom omz git plugins
 
-**entry: git-ljw.plugin.zsh**
+**entry: omz-git.plugin.zsh**
 
 ### how to enable this plugin?
 
