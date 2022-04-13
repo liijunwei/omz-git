@@ -1,4 +1,4 @@
-**Migrated from [custom-omz-plugins](https://github.com/liijunwei/custom-omz-plugins)**
+**Migrate from [custom-omz-plugins](https://github.com/liijunwei/custom-omz-plugins)**
 
 # Custom omz git plugins
 
