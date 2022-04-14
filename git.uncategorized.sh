@@ -54,6 +54,16 @@ function gst() {
   echo
 }
 
+function git-reset-branch() {
+  local branch_name=$1
+
+  git fetch &&
+  git checkout $branch_name &&
+  git reset --hard HEAD@{upstream} &&
+  echo "Done reset branch." ||
+  echo "Something wrong."
+}
+
 # It's hard to implemented by alias
 # git checkout -b xxx && git push --set-upstream origin xxx
 function gcobp() {
