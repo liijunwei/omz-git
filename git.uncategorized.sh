@@ -13,15 +13,6 @@ function git-make-rollback() {
   git status
 }
 
-function git-tag-stable() {
-  local tag_name="stable-$(date "+%Y%m%d")"
-  echo "============================"
-  echo "Tag Created: ${tag_name}"
-  echo "Command to delete this tag: git tag -d ${tag_name}"
-
-  git tag ${tag_name}
-}
-
 unalias gco
 function gco() {
   local original_branch_name=$1;
