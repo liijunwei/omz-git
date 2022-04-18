@@ -16,8 +16,3 @@ function out() {
   local repo_url=$1
   goto_or_goto_and_clone "$HOME/OuterGitRepo" "$repo_url"
 }
-
-function up() {
-  local repo_url=$1
-  goto_or_goto_and_clone "$HOME/Udesk/02UdeskProject" "$repo_url"
-}
