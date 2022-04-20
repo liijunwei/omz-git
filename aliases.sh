@@ -13,3 +13,4 @@ alias groh='git add . && git reset --hard HEAD@{u}'
 alias jj="gaa;gcmsg 'Debugging.';gp;"
 alias t="tig"
 alias tt='tig --all'
+alias s="smerge ."
