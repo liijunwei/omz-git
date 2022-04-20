@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# view commit in browser
 function git-view-in-web() {
   local project_abs_path=$(git rev-parse --show-toplevel)
 
