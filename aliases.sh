@@ -1,7 +1,7 @@
 #!/bin/bash
 
 alias 2='git checkout - && echo && git log | head -n1'
-alias cm='gaa;gcmsg "$(prepend_commit_message)Commit manually.";'
+alias cm='gaa;gcmsg "Commit manually.";'
 alias c='cm'
 alias d='git add . && git diff --staged | tig'
 alias fix="gaa;gcmsg 'FIX.';gp;"
