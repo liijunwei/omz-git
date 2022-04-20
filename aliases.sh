@@ -1,8 +1,7 @@
 #!/bin/bash
 
 alias 2='git checkout - && echo && git log | head -n1'
-alias cm='gaa;gcmsg "Commit manually.";'
-alias c='cm'
+alias c='gaa;gcmsg "Commit manually.";'
 alias d='git add . && git diff --staged | tig'
 alias fix="gaa;gcmsg 'FIX.';gp;"
 alias gbb='git branch -avv | fzf'
