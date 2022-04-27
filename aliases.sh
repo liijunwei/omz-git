@@ -15,4 +15,5 @@ alias jj="gaa;gcmsg 'Debugging.';gp;"
 alias t="tig"
 alias tt='tig --all'
 alias s="smerge ."
-alias git-setup-auto-commit="watch -n 120 \"git pull && git add . && git commit -m 'Commit automatically by watch.' && git push\""
+alias git-setup-auto-commit-push="watch -n 120 \"git pull && git add . && git commit -m 'Commit automatically by watch.' && git push\""
+alias git-setup-auto-commit="watch -n 120 \"git pull && git add . && git commit -m 'Commit automatically by watch.'\""
