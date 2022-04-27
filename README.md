@@ -23,3 +23,7 @@ source $HOME/.zshrc
 
 Use [git up](https://pypi.org/project/git-up/)
 
+```bash
+brew install pygitup
+```
+
