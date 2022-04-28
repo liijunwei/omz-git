@@ -13,21 +13,11 @@ function update-all-codebases() {
     local result=$(git rev-parse --is-inside-work-tree &> /dev/null; echo $?)
 
     if [ "$result" = "0" ]; then
-      echo_red "Updating $project"
+      echo "\e[1;31m[Updating $project]\e[0m"
       echo "========================================="
-      local current_branch=$(git rev-parse --abbrev-ref HEAD)
-
-      git fetch
-
-      for branch in ${MASTER_OR_MAIN_BRANCHE[@]}; do
-        git checkout $branch
-        git add .
-        git reset --hard HEAD@{u}
-      done
-
-      git checkout $current_branch
+      git up
     else
-      echo_red "Not a git repository: $(pwd)"
+      echo "\e[1;31m[Not a git repository: $(pwd)]\e[0m"
     fi
 
     cd ..
