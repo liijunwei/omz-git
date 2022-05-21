@@ -10,7 +10,7 @@ alias gcob="git checkout -b"
 alias gpo='git push origin '
 alias groh='git add . && git reset --hard HEAD@{u}'
 alias grbu='git rebase HEAD@{u}'
-alias grbiu='git rebase -i HEAD@{u}'
+alias grbiu="GIT_EDITOR=\"gsed -i '2,/^$/s/^pick\b/s/'\" git rebase -i HEAD@{u}"
 alias jj="gaa;gcmsg 'Debugging.';gp;"
 alias t="tig"
 alias tt='tig --all'
