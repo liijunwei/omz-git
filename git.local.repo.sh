@@ -8,7 +8,7 @@ function _do_trim_remote_info(){
 }
 
 function _git_remote_backup_file(){
-  echo "${_git_ljw_path}/git.local.repo.remote.backup"
+  echo "${_omz_git_path}/git.local.repo.remote.backup"
 }
 
 function _do_log_rollback_info(){
@@ -23,8 +23,8 @@ function _do_log_rollback_info(){
   echo "Backup current remote config"
   echo "------------------------"
   git remote -vv
-  date >> "$_git_ljw_path/git.local.repo.remote.backup"
-  git remote -vv >> "$_git_ljw_path/git.local.repo.remote.backup"
+  date >> "$_omz_git_path/git.local.repo.remote.backup"
+  git remote -vv >> "$_omz_git_path/git.local.repo.remote.backup"
   echo
 
   echo "Backup file:"
