@@ -19,3 +19,4 @@ alias git-setup-auto-commit-push="watch -n 120 \"git pull && git add . && git co
 alias git-setup-auto-commit="watch -n 120 \"git pull && git add . && git commit -m 'Commit automatically by watch.'\""
 unalias gl
 alias gl="git up"
+alias git-cleanup="git add .; git reset --hard \$(git rev-parse HEAD)"
