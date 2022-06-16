@@ -5,5 +5,10 @@ function rspec-run-diff-files() {
   local default_base="origin/develop"
   local base=${param_base:-"$default_base"}
 
-  bundle exec rspec $(git diff --merge-base $base --name-only spec/**/*_spec.rb) $(git diff --staged --name-only spec/**/*_spec.rb)
+  local diff_files=(
+    $(git diff --merge-base $base --name-only spec/**/*_spec.rb)
+    $(git diff --staged           --name-only spec/**/*_spec.rb)
+  )
+
+  bundle exec rspec ${diff_files[@]}
 }
