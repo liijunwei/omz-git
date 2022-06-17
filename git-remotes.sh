@@ -16,6 +16,9 @@ function git-change-remote-repo() {
   git remote add origin "$neworigin"
   echo
 
+  git fetch
+  git branch -u origin/$(git rev-parse --abbrev-ref HEAD)
+
   echo "remote info(after)"
   echo "=================="
   git remote -v
