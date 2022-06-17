@@ -6,16 +6,19 @@ function check-git-diff-files-with() {
   local default_base="origin/develop"
   local base=${param_base:-"$default_base"}
 
-  local diff_files=(
-    $(git diff --merge-base $base --name-only spec/**/*_spec.rb)
-    $(git diff --staged           --name-only spec/**/*_spec.rb)
-  )
-
   case $param_gem in
     rspec)
+      local diff_files=(
+        $(git diff --merge-base $base --name-only spec/**/*_spec.rb)
+        $(git diff --staged           --name-only spec/**/*_spec.rb)
+      )
       bundle exec rspec ${diff_files[@]}
       ;;
     rubocop)
+      local diff_files=(
+        $(git diff --merge-base $base --name-only *.rb)
+        $(git diff --staged           --name-only *.rb)
+      )
       bundle exec rubocop -A ${diff_files[@]}
       ;;
     *)
