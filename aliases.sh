@@ -5,6 +5,7 @@ alias c='gaa;gcmsg "Commit manually.";'
 alias d='git add . && git diff --staged | tig'
 alias fix="gaa;gcmsg 'FIX.';gp;"
 alias gbb='git branch -vv | fzf'
+alias gbbc="git checkout \$(git branch -vv | fzf | awk '{print \$1}')"
 alias gcam='git commit -v -a --no-edit --amend --allow-empty'
 alias gcob="git checkout -b"
 alias gpo='git push origin '
