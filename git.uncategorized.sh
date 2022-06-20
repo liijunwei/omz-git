@@ -13,15 +13,6 @@ function git-make-rollback() {
   git status
 }
 
-unalias gco
-function gco() {
-  local original_branch_name=$1;
-  local branch_name=$original_branch_name;
-  git checkout $([[ $branch_name == origin/* || $branch_name == remotes/origin/* ]] && echo "$branch_name" | tr  '/' ' ' | awk '{print $NF}' || echo $branch_name);
-
-  git log | head -n1;
-}
-
 unalias gst
 function gst() {
   git status 2> /dev/null
