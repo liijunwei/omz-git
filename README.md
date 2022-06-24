@@ -27,3 +27,8 @@ Use [git up](https://pypi.org/project/git-up/)
 brew install pygitup
 ```
 
+# Practice
+
++ Define function instead of alias as alias is hard to check source_location...
+
+
