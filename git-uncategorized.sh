@@ -13,13 +13,13 @@ function git-make-rollback() {
   git status
 }
 
-unalias gst
+unalias gst 2>/dev/null
 function gst() {
   git status 2> /dev/null
 
   if [ $? -eq 128 ]; then
     echo "Current directory is not a git repository."
-    return 0;
+    return 0
   fi
 
   echo
@@ -36,27 +36,17 @@ function gst() {
   echo
 }
 
-function git-reset-branch() {
-  local branch_name=$1
-
-  git fetch &&
-  git checkout $branch_name &&
-  git reset --hard HEAD@{upstream} &&
-  echo "Done reset branch." ||
-  echo "Something wrong."
-}
-
 # It's hard to implemented by alias
 # git checkout -b xxx && git push --set-upstream origin xxx
 function gcobp() {
   if [ $# -eq 0 ]; then
     echo "Usage: checkout new branch and push to origin."
-    return 0;
+    return 0
   fi
 
-  local branch_name=$1;
-  git checkout -b $branch_name;
-  git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD);
+  local branch_name=$1
+  git checkout -b $branch_name
+  git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
 }
 
 function get-commit-message-by-commit-id() {
@@ -71,7 +61,7 @@ function get-0-to-N-commits() {
 
   for i in {0..$commit_id}; do
     local commit_id=$(git rev-parse  HEAD~$i)
-    echo "git cherry-pick $commit_id ; # 第 $i 个 $(get-commit-message-by-commit-id $commit_id)";
+    echo "git cherry-pick $commit_id ; # 第 $i 个 $(get-commit-message-by-commit-id $commit_id)"
   done
 }
 
@@ -92,12 +82,12 @@ function ccc() {
   git add .
 
   if [ -z "${commit_msg}" ]; then
-    git commit -m "$default_msg."
-    git push;
-    return 0;
+    git commit -m "$default_msg"
+    git push
+    return 0
   fi
 
-  git commit -m "$default_msg: $commit_msg."
+  git commit -m "$default_msg: $commit_msg"
   git push
 }
 

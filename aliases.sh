@@ -18,6 +18,7 @@ alias tt='tig --all'
 alias s="smerge ."
 alias git-setup-auto-commit-push="watch -n 120 \"git pull && git add . && git commit -m 'Commit automatically by watch.' && git push\""
 alias git-setup-auto-commit="watch -n 120 \"git pull && git add . && git commit -m 'Commit automatically by watch.'\""
-unalias gl
+unalias gl 2>/dev/null
 alias gl="git up"
+alias gll="git up --no-fetch"
 alias git-cleanup="git add .; git reset --hard \$(git rev-parse HEAD)"

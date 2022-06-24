@@ -4,12 +4,11 @@ function goto_or_goto_and_clone() {
   cd "$target_dir"
 
   local git_repo_url=$2
-  if [[ "" == "$git_repo_url" ]]; then
-    return 0
-  else
+  if [[ "" != "$git_repo_url" ]]; then
     gcll "$git_repo_url"
-    return 0
   fi
+
+  return 0
 }
 
 function out() {

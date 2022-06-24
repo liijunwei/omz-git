@@ -28,6 +28,6 @@ ${url}
 
 EOF
 
-  [[ -z "$1" ]] && open $url; # for macos use `open`
+  [[ -z "$1" ]] && open $url  # for macos use `open`
                               # for linux, use `xdg-open`
 }

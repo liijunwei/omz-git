@@ -25,5 +25,5 @@ ${final_url};
 EOF
 
   local open_in_web_tag=$2
-  [[ -z "$open_in_web_tag" ]] && open $final_url;
+  [[ -z "$open_in_web_tag" ]] && open $final_url
 }

@@ -48,6 +48,7 @@ EOF
 
 function _do_setup_local_repo(){
   local local_repo_dir="$HOME/local.repo"
+  mkdir -p $local_repo_dir
   cd $local_repo_dir
 
   local local_repo_name="$1"

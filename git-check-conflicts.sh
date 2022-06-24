@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # inspired by gitlab source@scripts/lint-conflicts.sh
 
 function git-check-conflicts() {
