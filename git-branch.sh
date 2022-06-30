@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function gpo() {
-  git push origin
+  git push origin $1
 }
 
 function gbb() {
