@@ -5,5 +5,5 @@ function gpo() {
 }
 
 function gbb() {
-  git branch -v | fzf
+  git branch -vva | fzf
 }
