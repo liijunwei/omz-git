@@ -15,3 +15,7 @@ function tt() {
 function tb() {
   tig blame
 }
+
+function tig-view-my-commits() {
+  tig --all --author="$(git config --get user.email)"
+}
