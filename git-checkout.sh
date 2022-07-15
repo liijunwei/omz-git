@@ -12,5 +12,6 @@ function gbbc() {
 }
 
 function gcob() {
-  git checkout -b
+  local branch_name=$1
+  git checkout -b $branch_name
 }
