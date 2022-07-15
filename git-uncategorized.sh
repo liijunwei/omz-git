@@ -38,6 +38,7 @@ function gst() {
 
 # It's hard to implemented by alias
 # git checkout -b xxx && git push --set-upstream origin xxx
+# Deprecated: use `git config --global push.autoSetupRemote true` along with `git checkout xxx && git push` instead
 function gcobp() {
   if [ $# -eq 0 ]; then
     echo "Usage: checkout new branch and push to origin."
