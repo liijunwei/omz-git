@@ -20,6 +20,10 @@ function ap() {
   git add . && git commit -m "Apply suggestions from code review"
 }
 
+function am() {
+  git commit -v --amend --allow-empty
+}
+
 unalias gcam 2>/dev/null
 function gcam() {
   git commit -v -a --no-edit --amend --allow-empty
