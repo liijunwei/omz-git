@@ -36,20 +36,6 @@ function gst() {
   echo
 }
 
-# It's hard to implemented by alias
-# git checkout -b xxx && git push --set-upstream origin xxx
-# Deprecated: use `git config --global push.autoSetupRemote true` along with `git checkout xxx && git push` instead
-function gcobp() {
-  if [ $# -eq 0 ]; then
-    echo "Usage: checkout new branch and push to origin."
-    return 0
-  fi
-
-  local branch_name=$1
-  git checkout -b $branch_name
-  git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
-}
-
 function get-commit-message-by-commit-id() {
   local commit_id=$1
   git log --format=%B -n 1 $commit_id | cat
