@@ -13,7 +13,7 @@ function check-git-diff-files-with-rspec() {
     return 0
   else
     echo "run for: ${diff_files[*]}"
-    bundle exec rspec ${diff_files[@]}
+    bundle exec rspec --format=documentation ${diff_files[@]}
   fi
 }
 
