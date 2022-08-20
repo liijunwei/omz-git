@@ -10,9 +10,9 @@ function git-change-remote-repo() {
   git remote -v
   echo
 
-  echo "removing old rogin..."
+  echo "removing old origin..."
   git remote remove origin
-  echo "adding old rogin..."
+  echo "adding old origin..."
   git remote add origin "$neworigin"
   echo
 
