@@ -4,12 +4,12 @@
 
 function v() {
   local keyword=${1:-""}
-  local fork_point=$(git-fork-point-of develop)
+  local mb_commitid=$(git merge-base develop HEAD)
 
-  $CORE_EDITOR $(git diff $fork_point --name-only | fzf -q "$keyword" --preview 'bat --style=numbers --color=always --line-range :500 {}')
+  $CORE_EDITOR $(git diff $mb_commitid --name-only | fzf -q "$keyword" --preview 'bat --style=numbers --color=always --line-range :500 {}')
 }
 
 function va() {
-  local fork_point=$(git-fork-point-of develop)
-  $CORE_EDITOR $(git diff $fork_point --name-only)
+  local mb_commitid=$(git merge-base develop HEAD)
+  $CORE_EDITOR $(git diff $mb_commitid --name-only)
 }
