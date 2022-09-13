@@ -24,5 +24,7 @@ function tig-view-commits-of() {
     author="$myself"
   fi
 
-  tig --all --author="$author"
+  set -x
+  tig --author="$author"
+  set +x
 }
