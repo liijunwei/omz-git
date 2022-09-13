@@ -16,6 +16,13 @@ function tb() {
   tig blame
 }
 
-function tig-view-my-commits() {
-  tig --all --author="$(git config --get user.email)"
+function tig-view-commits-of() {
+  local author=${1:-""}
+  local myself=$(git config --get user.email)
+
+  if [[ $author = "" ]]; then
+    author="$myself"
+  fi
+
+  tig --all --author="$author"
 }
