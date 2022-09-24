@@ -19,8 +19,6 @@ function git-change-remote-repo() {
   echo
 }
 
-# how to work with your fork and upstream?
-# https://stackoverflow.com/questions/11619593/how-to-change-the-fork-that-a-repository-is-linked-to
 function git-change-origin-repo() {
   local neworigin=$1
 
@@ -34,8 +32,8 @@ function git-change-origin-repo() {
   cat <<EOF
 
 USAGE:
-  git-work-with-forked-repo
-  git-work-with-forked-repo your-new-origin
+  git-change-origin-repo
+  git-change-origin-repo your-new-origin
 
 Sync fork by:
   git checkout main && git pull
