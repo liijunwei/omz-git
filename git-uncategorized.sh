@@ -61,20 +61,3 @@ function git-show-commit-files() {
 
   git show --pretty="" --name-only $commit_id | cat
 }
-
-function ccc() {
-  local commit_msg=$1
-  local default_msg="Code cleanup"
-
-  git add .
-
-  if [ -z "${commit_msg}" ]; then
-    git commit -m "$default_msg"
-    git push
-    return 0
-  fi
-
-  git commit -m "$default_msg: $commit_msg"
-  git push
-}
-

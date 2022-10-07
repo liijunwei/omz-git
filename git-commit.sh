@@ -12,12 +12,35 @@ function git-setup-auto-commit() {
   watch -n $interval "git add . && git commit -m 'Commit automatically by watch'"
 }
 
+# private api
+function _quick_commit() {
+  local default_msg=$1
+  local extra_commit_msg=$2
+
+  git add .
+
+  if [ -z "${extra_commit_msg}" ]; then
+    git commit -m "$default_msg"
+  else
+    git commit -m "$default_msg: $extra_commit_msg"
+  fi
+
+  return 0
+}
+
 function c() {
-  git add . && git commit -m "Commit manually"
+  local commit_msg=$1
+  _quick_commit "Commit manually" $commit_msg
+}
+
+function ccc() {
+  local commit_msg=$1
+  _quick_commit "Code cleanup" $commit_msg
 }
 
 function ap() {
-  git add . && git commit -m "Apply suggestions from code review"
+  local commit_msg=$1
+  _quick_commit "Apply suggestions from code review" $commit_msg
 }
 
 function am() {
