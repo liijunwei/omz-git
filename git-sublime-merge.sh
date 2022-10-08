@@ -3,7 +3,3 @@
 function s() {
   smerge .
 }
-
-function sb() {
-  smerge blame
-}
