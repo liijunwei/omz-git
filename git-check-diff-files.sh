@@ -10,7 +10,6 @@ function check-git-diff-files-with-rspec() {
 
   if [ ${#diff_files[@]} -eq 0 ]; then
     echo "No files detected"
-    return 0
   else
     echo "run for: ${diff_files[*]}"
     bundle exec rspec --format=progress --no-profile ${diff_files[@]}
@@ -27,7 +26,6 @@ function check-git-diff-files-with-rubocop() {
 
   if [ ${#diff_files[@]} -eq 0 ]; then
     echo "No files detected"
-    return 0
   else
     echo "run for: ${diff_files[*]}"
     bundle exec rubocop -A ${diff_files[@]}
