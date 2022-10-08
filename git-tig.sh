@@ -13,7 +13,8 @@ function tt() {
 }
 
 function tb() {
-  tig blame
+  local keyword=$1
+  tig blame $keyword
 }
 
 function tig-view-commits-of() {
