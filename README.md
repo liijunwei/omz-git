@@ -1,5 +1,3 @@
-**Migrate from [custom-omz-plugins](https://github.com/liijunwei/custom-omz-plugins)**
-
 # Custom omz git plugins
 
 **entry: omz-git.plugin.zsh**
@@ -30,5 +28,3 @@ brew install pygitup
 # Practice
 
 + Define function instead of alias as alias is hard to check source_location...
-
-
