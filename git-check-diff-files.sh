@@ -12,7 +12,7 @@ function check-git-diff-files-with-rspec() {
     echo "No files detected"
   else
     set -x
-    bundle exec rspec --format=progress --no-profile ${diff_files[@]}
+    bundle exec rspec --format=progress ${diff_files[@]}
     set +x
   fi
 }
