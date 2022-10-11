@@ -11,3 +11,7 @@ function gbb() {
 function gbbb() {
   git branch -vva | fzf
 }
+
+function git-get-repo-default-branch() {
+  git rev-parse --abbrev-ref origin/HEAD
+}
