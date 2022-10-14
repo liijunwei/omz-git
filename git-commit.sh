@@ -20,9 +20,9 @@ function _quick_commit() {
   git add .
 
   if [ -z "${extra_commit_msg}" ]; then
-    git commit -m "$default_msg"
+    git commit --allow-empty -m "$default_msg"
   else
-    git commit -m "$default_msg: $extra_commit_msg"
+    git commit --allow-empty -m "$default_msg: $extra_commit_msg"
   fi
 
   return 0
