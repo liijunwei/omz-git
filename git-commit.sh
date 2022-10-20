@@ -33,6 +33,11 @@ function c() {
   _quick_commit "Commit manually" $commit_msg
 }
 
+function wi() {
+  local commit_msg=$1
+  _quick_commit "WIP" $commit_msg
+}
+
 function ccc() {
   local commit_msg=$1
   _quick_commit "Code cleanup" $commit_msg
