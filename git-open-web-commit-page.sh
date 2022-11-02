@@ -1,16 +1,12 @@
 #!/bin/bash
 
 function git-view-in-web() {
-  local project_abs_path=$(git rev-parse --show-toplevel)
-
   local branch_or_commit_id=$1
-  local current_branch=$(git rev-parse --abbrev-ref HEAD)
-  local branch_name=${branch_or_commit_id:-"$current_branch"}
+  local currentbranch=$(git rev-parse --abbrev-ref HEAD)
+  local branch=${branch_or_commit_id:-"$currentbranch"}
 
-  local commit=$(git rev-parse $branch_name)
-  local repo_http_url=$(get_repo_http_url)
-  local repo_without_dot_git=$(dirname $repo_http_url)/$(basename $repo_http_url .git)
-  local final_url="${repo_without_dot_git}/commit/${commit}"
+  local commit=$(git rev-parse $branch)
+  local repo_url="$(repo_http_url)/commit/${commit}"
 
   cat <<EOF
 
@@ -20,10 +16,10 @@ cd \$HOME/OuterGitRepo/rails
 git-view-in-web demobranch_123   # Show HEAD commit in browser, for code review.
 git-view-in-web demobranch_123 x # Show branch \`demobranch_123\` info only, for link sharing.
 -------------------------------------------------------------
-${final_url};
+${repo_url};
 
 EOF
 
   local open_in_web_tag=$2
-  [[ -z "$open_in_web_tag" ]] && open $final_url
+  [[ -z "$open_in_web_tag" ]] && open $repo_url
 }
