@@ -35,7 +35,7 @@ function c() {
 
 function wi() {
   local commit_msg=$1
-  _quick_commit "WIP" $commit_msg
+  _quick_commit "[SKIP CI] WIP" $commit_msg
 }
 
 function ccc() {
