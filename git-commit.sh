@@ -54,5 +54,5 @@ function am() {
 
 unalias gcam 2>/dev/null
 function gcam() {
-  git commit -v -a --no-edit --amend --allow-empty
+  git commit -v --no-edit --amend --allow-empty
 }
