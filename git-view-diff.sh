@@ -13,3 +13,8 @@ function va() {
   local mb_commitid=$(git merge-base develop HEAD)
   $CORE_EDITOR $(git diff $mb_commitid --name-only)
 }
+
+function vc() {
+  local mb_commitid=$(git merge-base develop HEAD)
+  git diff $mb_commitid --name-only | cat
+}
