@@ -1,5 +1,7 @@
 # Custom omz git plugins
 
+also see: https://github.com/tj/git-extras
+
 **entry: omz-git.plugin.zsh**
 
 ### how to enable this plugin?
