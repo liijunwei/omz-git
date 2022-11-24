@@ -9,6 +9,5 @@ function gbbc() {
 
 function gcob() {
   local branch_name=$1
-  local standardized=$(echo $branch_name | tr ' '- _)
-  git checkout -b $standardized
+  git checkout -b $branch_name
 }
