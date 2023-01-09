@@ -20,12 +20,13 @@ function tb() {
 function tig-view-commits-of() {
   local author=${1:-""}
   local myself=$(git config --get user.email)
+  local sort_option="--date-order" # ref: https://github.com/jonas/tig/issues/497
 
   if [[ $author = "" ]]; then
     author="$myself"
   fi
 
   set -x
-  tig --author="$author"
+  tig --author="$author" $sort_option
   set +x
 }
