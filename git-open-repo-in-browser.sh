@@ -10,7 +10,7 @@ function repo_http_url(){
     sed 's/\.git//'
   )
 
-  echo "http://${url}"
+  echo "https://${url}"
 }
 
 function or(){
