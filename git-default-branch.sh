@@ -1,9 +1,17 @@
-function origin_default_branch() {
-  git rev-parse --abbrev-ref origin/HEAD
+#!/bin/bash
+
+function remote_default_branch() {
+  local remote=$(git rev-parse --abbrev-ref origin/HEAD 2> /dev/null)
+
+  if [ "$remote" = "origin/HEAD" ]; then
+    git rev-parse --abbrev-ref upstream/HEAD
+  else
+    echo $remote
+  fi
 }
 
 function default_branch() {
-  basename $(origin_default_branch)
+  basename $(remote_default_branch)
 }
 
 function rdd() {
@@ -21,4 +29,9 @@ function de-file() {
 
   echo $final_url
   open $final_url
+}
+
+# get merge base commitid
+function mb_commitid() {
+  git merge-base $(default_branch) HEAD
 }
