@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# on error
+# git remote set-head origin --delete
+# git remote set-head origin main
+# git remote set-head origin master
 function remote_default_branch() {
   local remote=$(git rev-parse --abbrev-ref origin/HEAD 2> /dev/null)
 
