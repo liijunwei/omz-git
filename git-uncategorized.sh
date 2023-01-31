@@ -13,29 +13,6 @@ function git-make-rollback() {
   git status
 }
 
-unalias gst 2>/dev/null
-function gst() {
-  git status 2> /dev/null
-
-  if [ $? -eq 128 ]; then
-    echo "Current directory is not a git repository."
-    return 0
-  fi
-
-  echo
-
-  local commit_id=$(git rev-parse HEAD)
-  local commit_msg=$(get-commit-message-by-commit-id $commit_id)
-  echo "head commit id"
-  echo "========================================"
-  echo "$commit_id"
-  echo
-  echo "head commit msg"
-  echo "========================================"
-  echo "$commit_msg"
-  echo
-}
-
 function get-commit-message-by-commit-id() {
   local commit_id=$1
   git log --format=%B -n 1 $commit_id | cat
