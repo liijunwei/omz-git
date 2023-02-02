@@ -9,7 +9,7 @@ function v() {
 }
 
 function va() {
-  $CORE_EDITOR $(git diff $(mb_commitid) --name-only)
+  $CORE_EDITOR $(git diff $(mb_commitid) --name-only --diff-filter=ACM)
 }
 
 function vc() {
