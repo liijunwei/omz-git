@@ -1,19 +1,19 @@
 #!/bin/bash
 
-function repo_http_url(){
+function repo_http_url() {
   local url=$(
     git remote get-url --push origin |
-    cut -d '@' -f 2       |
-    sed 's/:9876//'       |
-    sed 's/^https:\/\///' |
-    sed 's/com:/com\//'   |
-    sed 's/\.git//'
+      cut -d '@' -f 2 |
+      sed 's/:9876//' |
+      sed 's/^https:\/\///' |
+      sed 's/com:/com\//' |
+      sed 's/\.git//'
   )
 
   echo "https://${url}"
 }
 
-function or(){
+function or() {
   cat <<EOF
 
 USAGE: Open Repo in Github/Gitlab

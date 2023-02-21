@@ -15,7 +15,7 @@ function git-make-rollback() {
 
 unalias gst 2>/dev/null
 function gst() {
-  git status 2> /dev/null
+  git status 2>/dev/null
 
   if [ $? -eq 128 ]; then
     echo "Current directory is not a git repository."
@@ -47,7 +47,7 @@ function get-0-to-N-commits() {
   echo "找出 $(git rev-parse --abbrev-ref HEAD) 分支最新的 (0..$commit_id) commits"
 
   for i in {0..$commit_id}; do
-    local commit_id=$(git rev-parse  HEAD~$i)
+    local commit_id=$(git rev-parse HEAD~$i)
     echo "git cherry-pick $commit_id ; # 第 $i 个 $(get-commit-message-by-commit-id $commit_id)"
   done
 }
