@@ -17,8 +17,6 @@ function _quick_commit() {
   local default_msg=$1
   local extra_commit_msg=$2
 
-  git add .
-
   if [ -z "${extra_commit_msg}" ]; then
     git commit --allow-empty -m "$default_msg"
   else
@@ -30,16 +28,19 @@ function _quick_commit() {
 
 function c() {
   local commit_msg=$1
+  git add .
   _quick_commit "Commit manually" $commit_msg
 }
 
 function wi() {
   local commit_msg=$1
+  git add .
   _quick_commit "[SKIP CI] WIP" $commit_msg
 }
 
 function ccc() {
   local commit_msg=$1
+  git add .
   _quick_commit "Code cleanup" $commit_msg
 }
 
