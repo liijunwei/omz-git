@@ -15,3 +15,7 @@ function tdo() {
   echo_info
   tig HEAD@{u} HEAD
 }
+
+function gdm() {
+  git diff $(mb_commitid) --name-only
+}
