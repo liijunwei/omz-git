@@ -37,9 +37,10 @@ task :rebase_branches do
   when :force_push
     puts "force push all my branches"
 
+    # https://git-scm.com/docs/git-push
+    # refspec: <src>:<dst>
     my_branches.each do |branch|
-      sh "git checkout --quiet #{branch}"
-      sh "git push     --quiet --force-with-lease --force-if-includes"
+      sh "git push origin --quiet --force-with-lease --force-if-includes #{branch}:#{branch}"
     end
   else
     raise "NOT SUPPORTTED"
