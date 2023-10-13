@@ -59,6 +59,7 @@ function _do_setup_local_repo() {
 
 function _do_setup_remote() {
   local repo="$1"
+  git remote remove origin 2> /dev/null
   git remote add origin "file://$repo"
   git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
   echo
