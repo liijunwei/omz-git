@@ -17,5 +17,19 @@ function tdo() {
 }
 
 function gdm() {
-  git diff $(mb_commitid) --name-only
+  if [[ $# == 0 ]]; then
+    echo "examples:"
+    echo "===================================="
+    echo "git diff \$(mb_commitid) --name-only"
+    echo "git diff \$(mb_commitid) --shortstat"
+    echo "git diff \$(mb_commitid) --stat"
+    echo "git diff \$(mb_commitid) --shortstat"
+    echo "git diff \$(mb_commitid) --numstat   | sort -hr"
+    echo "git diff \$(mb_commitid) --stat"
+    echo "git diff --diff-filter=d --name-only \$(mb_commitid) '*.go'"
+    echo
+  else
+    git diff $(mb_commitid) $@ | cat
+  fi
 }
+
