@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# on error
-# git remote set-head origin --delete
-# git remote set-head origin main
-# git remote set-head origin master
+# see function `de()` on error
 function remote_default_branch() {
   local remote=$(git rev-parse --abbrev-ref origin/HEAD 2>/dev/null)
 
@@ -23,7 +20,17 @@ function rdd() {
 }
 
 function de() {
-  git checkout $(default_branch)
+  if [ $(git branch -r | grep HEAD | wc -l) -eq 0 ]; then
+    cat <<- SQL
+HEAD is not set to a branch, try one of below:
+    git remote set-head origin --delete && git remote set-head origin main
+    git remote set-head origin --delete && git remote set-head origin master
+SQL
+
+  return
+  fi
+
+ git checkout $(default_branch)
 }
 
 # initially designed for develop/default branch file
