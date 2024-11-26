@@ -29,7 +29,7 @@ function _quick_commit() {
 function c() {
   local commit_msg=$1
   git add .
-  _quick_commit "Commit manually" $commit_msg
+  _quick_commit "chore: Commit manually" $commit_msg
 }
 
 function wi() {
@@ -41,12 +41,12 @@ function wi() {
 function ccc() {
   local commit_msg=$1
   git add .
-  _quick_commit "Code cleanup" $commit_msg
+  _quick_commit "chore: Code cleanup" $commit_msg
 }
 
 function ap() {
   local commit_msg=$1
-  _quick_commit "Apply suggestions from code review" $commit_msg
+  _quick_commit "chore: Apply suggestions from code review" $commit_msg
 }
 
 function am() {
