@@ -77,7 +77,7 @@ function do_rollback() {
 function git-push-local-repo() {
   local local_repo_name=$1
   if [[ "" == "$local_repo_name" ]]; then
-    local local_repo_name="tmp_$(date "+%Y%m%d%H%M%S")"
+    local local_repo_name="tmp_$(basename $(pwd))_$(date "+%Y%m%d%H%M%S")"
   fi
 
   _do_log_rollback_info
